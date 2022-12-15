@@ -32,7 +32,7 @@
                                 <figure class="d-flex p-0 m-2">
                                     <img :src="loggedUserAvatar()" alt="profile Image" class="m-auto">
                                 </figure>
-                                <p class="d-inline-block m-auto"><!-- user name --></p>
+                                <p class="d-inline-block m-auto">{{loggedUser.name}}</p>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
                                 <i class="fa-solid fa-rotate-right m-2"></i>
@@ -47,9 +47,12 @@
                         <div id="viewedAccount" class="headingAccountsColor accountDimensioning d-flex pe-2">
                             <div class="accountInfos d-flex my-auto align-self-start">
                                 <figure class="d-flex p-0 m-2">
-                                    <img src='./img/avatar_io.jpg' alt="profile Image" class="m-auto">
+                                    <img src='./img/avatar_1.jpg' alt="profile Image" class="m-auto">
                                 </figure>
-                                <p class="d-inline-block m-auto"><!-- user name --></p>
+                                <div class="d-inline-block my-auto">
+                                    <p class="m-auto">{{contacts[0].name}}</p>
+                                    <p class="m-auto">Ultimo accesso: {{contacts[0].messages[contacts[0].messages.length - 1].date}}</p>
+                                </div>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
                                 <i class="fa-solid fa-rotate-right m-2"></i>
@@ -65,7 +68,7 @@
                         <!-- qui inserisco barra notifiche -->
                         <div id="notificationsToggle" class="d-flex">
                             <figure class="d-inline-block p-0 my-auto mx-3">
-                                <i id="notificationsBell" class="fa-regular fa-bell-slash fs-2 bg-white my-auto"></i>
+                                <i id="notificationsBell" class="fa-regular fa-bell-slash bg-white my-auto"></i>
                             </figure>
                             <div id="notificationInfos" class="d-inline-block my-auto">
                                 <p class="p-0 m-0">Ricevi notifiche di nuovi messaggi</p>
@@ -90,7 +93,10 @@
                                     <figure class="d-flex p-0 m-2">
                                         <img :src="contactUserAvatar(contact.avatar)" alt="profile Image" class="m-auto">
                                     </figure>
-                                        <p class="d-inline-block m-auto">{{contact.name}}</p>
+                                    <div class="d-inline-block m-auto">
+                                        <p class="m-auto">{{contact.name}}</p>
+                                        <p class="m-auto">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                    </div>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
                                         <p class="m-2">12:00</p>
@@ -99,8 +105,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="messagesArea" class="col-8 position-relative d-flex">
+                    <div id="messagesArea" class="col-8 position-relative">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
+
+                        
+                        <div class="singleMessageReceived m-2 p-2 bg-light position-relative">
+                            {{contacts[0].messages[0].message}}
+                            <span>00:00</span>
+                        </div>
                         <div id="messagesInput" class="d-flex">
                             <i class="fa-regular fa-face-smile m-auto"></i>
                             <input type="text" class="h-75 m-auto w-75" placeholder="Digita qui il tuo messaggio...">

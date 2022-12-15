@@ -174,6 +174,7 @@ createApp ({
                 avatar: '_io'
             },
 
+            selectedContactAvatar: '',
         }
     },
     
@@ -189,6 +190,11 @@ createApp ({
             console.log(stringToReturn);
             return stringToReturn;
         },
+
+        selectedContactAvatarSetter(index) {
+            this.selectedContactAvatar = `./img/avatar${index}.jpg`;
+        }
+
     }
 }).mount ('#app')
 

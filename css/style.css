@@ -47,6 +47,19 @@ div.input-group.input-group-sm {
     margin: 0.25rem 0.25rem;
 }
 
+div.accountInfos p {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+div.singleMessageReceived span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    padding: 2px;
+    font-size: 0.6rem;
+}
+
 .accountInfos {
     height: 100%;
 }
@@ -54,6 +67,15 @@ div.input-group.input-group-sm {
 .accountDimensioning {
     height: 55px;
     width: 100%;
+}
+
+.singleMessageReceived {
+    width: 40%;
+    border-radius: 5px;
+}
+
+.singleMessageSent {
+    width: 40%;
 }
 
 #inputGroup-sizing-sm {
@@ -72,7 +94,8 @@ div.input-group.input-group-sm {
 
 #notificationsBell {
     color: #8edafc;
-    padding: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
 }
 
 #messagesArea {
