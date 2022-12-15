@@ -110,7 +110,7 @@
 
                         <div v-for="singleMessage in contacts[0].messages" :key="singleMessage.message" class="singleMessageReceived m-2 p-2 bg-light position-relative">
                             {{singleMessage.message}}
-                            <span>00:00</span>
+                            <p><span>{{singleMessage.date}}</span><span></span></p>
                         </div>
 
 <!-- 
