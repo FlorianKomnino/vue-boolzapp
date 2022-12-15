@@ -29,7 +29,9 @@
                         <!-- qui inserisco account utente loggato e le impostazioni dell'account -->
                         <div id="loggedAccount" class="headingAccountsColor accountDimensioning d-flex">
                             <div class="accountInfos d-flex my-auto align-self-start">
-                                <img :src=`./img/avatar${loggedUser.avatar}.png` alt="profile Image" class="m-auto">
+                                <figure class="d-flex p-0 m-2">
+                                    <img src='./img/avatar_io.jpg' alt="profile Image" class="m-auto">
+                                </figure>
                                 <p class="d-inline-block m-auto"><!-- user name --></p>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -48,9 +50,21 @@
                 
                 <div class="row">
                     <div class="col-4">
-                        <!-- qui inserisco barra negazione notifiche, barra ricerca tra i contatti, lista contatti accessibili -->
-                        <div id="notificationsToggle">notifiche</div>
+                        <!-- qui inserisco barra notifiche -->
+                        <div id="notificationsToggle" class="d-flex">
+                            <figure class="d-inline-block p-0 my-auto mx-3">
+                                <i id="notificationsBell" class="fa-regular fa-bell-slash fs-2 bg-white my-auto"></i>
+                            </figure>
+                            <div id="notificationInfos" class="d-inline-block my-auto">
+                                <p class="p-0 m-0">Ricevi notifiche di nuovi messaggi</p>
+                                <a href="#">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+
+                        <!-- barra ricerca tra i contatti -->
                         <input type="text" id="searchBar">
+
+                        <!-- lista contatti accessibili -->
                         <div id="contactsList">
                             <ul>
                                 <li class="accountDimensioning d-flex">

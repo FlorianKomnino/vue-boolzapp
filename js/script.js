@@ -5,7 +5,6 @@ const { createApp } = Vue;
 createApp ({
     data() {
         return {
-
             contacts: [
                 {
                     name: 'Michele',
@@ -169,13 +168,20 @@ createApp ({
                     ],
                 }
             ],
-            message: 'Hello Vue!',
 
             loggedUser: {
                 name: 'Io MeStesso Me',
                 avatar: '_io'
             },
         }
+    },
+
+    methods : {
+        avatarImageSourceAdder(index) {
+            const stringToReturn = `./img/avatar${index}.jpg`;
+            return stringToReturn;
+        }
+        
     }
 }).mount ('#app')
 
