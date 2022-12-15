@@ -88,7 +88,7 @@
                         <!-- lista contatti accessibili -->
                         <div id="contactsList">
                             <ul>
-                                <li v-for="contact in contacts" class="accountDimensioning d-flex">
+                                <li v-for="contact, index in contacts" class="accountDimensioning d-flex" @click="contactToShowVariableSetter(index)">
                                     <div class="accountInfos d-flex my-auto align-self-start">
                                     <figure class="d-flex p-0 m-2">
                                         <img :src="contactUserAvatar(contact.avatar)" alt="profile Image" class="m-auto">
@@ -108,7 +108,7 @@
                     <div id="messagesArea" class="col-8 position-relative">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
-                        <div v-for="singleMessage in contacts[0].messages" :key="singleMessage.message" :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived' " class="position-relative">
+                        <div v-for="singleMessage in contactToShowSetter()" :key="singleMessage.message" :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived' " class="position-relative">
                             {{singleMessage.message}}
                             <p>{{singleMessage.date}}</p>
                         </div>

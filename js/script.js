@@ -175,6 +175,8 @@ createApp ({
             },
 
             selectedContactAvatar: '',
+
+            contactToShow: 0,
         }
     },
     
@@ -193,6 +195,14 @@ createApp ({
 
         selectedContactAvatarSetter(index) {
             this.selectedContactAvatar = `./img/avatar${index}.jpg`;
+        },
+
+        contactToShowSetter() {
+            return this.contacts[this.contactToShow].messages;
+        },
+
+        contactToShowVariableSetter(numberToSet) {
+            this.contactToShow = numberToSet;
         }
 
     }
