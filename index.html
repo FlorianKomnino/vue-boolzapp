@@ -27,7 +27,7 @@
                 <div class="row d-flex">
                     <div class="col-4 pe-0">
                         <!-- qui inserisco account utente loggato e le impostazioni dell'account -->
-                        <div id="loggedAccount" class="headingAccountsColor accountDimensioning d-flex">
+                        <div id="loggedAccount" class="headingAccountsColor accountDimensioning d-flex pe-2">
                             <div class="accountInfos d-flex my-auto align-self-start">
                                 <figure class="d-flex p-0 m-2">
                                     <img src='./img/avatar_io.jpg' alt="profile Image" class="m-auto">
@@ -44,12 +44,24 @@
 
                     <div id="contactOfViewedAccount" class="col-8 ps-0">
                         <!-- qui inserisco account utente di cui si stanno visualizzando i messaggi e impostazioni dei messaggi -->
-                        <div id="viewedAccount" class="headingAccountsColor accountDimensioning"></div>
+                        <div id="viewedAccount" class="headingAccountsColor accountDimensioning d-flex pe-2">
+                            <div class="accountInfos d-flex my-auto align-self-start">
+                                <figure class="d-flex p-0 m-2">
+                                    <img src='./img/avatar_io.jpg' alt="profile Image" class="m-auto">
+                                </figure>
+                                <p class="d-inline-block m-auto"><!-- user name --></p>
+                            </div>
+                            <div class="accountSettings d-inline-block my-auto ms-auto">
+                                <i class="fa-solid fa-rotate-right m-2"></i>
+                                <i class="fa-regular fa-message m-2"></i>
+                                <i class="fa-solid fa-ellipsis-vertical m-2"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 pe-0">
                         <!-- qui inserisco barra notifiche -->
                         <div id="notificationsToggle" class="d-flex">
                             <figure class="d-inline-block p-0 my-auto mx-3">
@@ -62,7 +74,13 @@
                         </div>
 
                         <!-- barra ricerca tra i contatti -->
-                        <input type="text" id="searchBar">
+
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text d-flex" id="inputGroup-sizing-sm">
+                                <i class="fa-solid fa-magnifying-glass m-auto"></i>
+                            </span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat">
+                        </div>
 
                         <!-- lista contatti accessibili -->
                         <div id="contactsList">

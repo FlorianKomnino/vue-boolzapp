@@ -43,6 +43,11 @@ figure {
     overflow: hidden;
 }
 
+div.input-group.input-group-sm {
+    width: calc(100% - 0.5rem);
+    margin: 0.25rem 0.25rem;
+}
+
 .accountInfos {
     height: 100%;
 }
@@ -52,16 +57,14 @@ figure {
     width: 100%;
 }
 
+#inputGroup-sizing-sm {
+    width: 80px;
+}
+
 #notificationsToggle {
     height: 70px;
     width: 100%;
     background-color: #8edafc;
-}
-
-#searchBar {
-    width: 100%;
-    height: 40px;
-    display: inline-block;
 }
 
 #contactOfViewedAccount {
