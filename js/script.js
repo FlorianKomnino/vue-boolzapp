@@ -174,13 +174,13 @@ createApp ({
                 avatar: '_io'
             },
 
-            
         }
     },
-
+    
     methods : {
-        avatarImageSourceAdder(index) {
-            const stringToReturn = `./img/avatar${index}.jpg`;
+        loggedUserAvatar() {
+            const stringToReturn = `./img/avatar${this.loggedUser.avatar}.jpd`;
+            console.log(stringToReturn);
             return stringToReturn;
         }
         
