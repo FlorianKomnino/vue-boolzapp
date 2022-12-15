@@ -61,6 +61,15 @@ div.singleMessageReceived p {
     margin: 0;
 }
 
+div.singleMessageSent p {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    padding: 2px;
+    font-size: 0.6rem;
+    margin: 0;
+}
+
 .accountInfos {
     height: 100%;
 }
@@ -73,10 +82,18 @@ div.singleMessageReceived p {
 .singleMessageReceived {
     width: 40%;
     border-radius: 5px;
+    margin: 10px auto 10px 10px;
+    padding: 7.5px;
+    background-color: #ffffff;
 }
+
 
 .singleMessageSent {
     width: 40%;
+    border-radius: 5px;
+    margin: 10px 10px 10px auto;
+    padding: 7.5px;
+    background-color: #d5f9ba;
 }
 
 #inputGroup-sizing-sm {

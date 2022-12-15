@@ -108,9 +108,9 @@
                     <div id="messagesArea" class="col-8 position-relative">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
-                        <div v-for="singleMessage in contacts[0].messages" :key="singleMessage.message" class="singleMessageReceived m-2 p-2 bg-light position-relative">
+                        <div v-for="singleMessage in contacts[0].messages" :key="singleMessage.message" :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived' " class="position-relative">
                             {{singleMessage.message}}
-                            <p><span>{{singleMessage.date}}</span><span></span></p>
+                            <p>{{singleMessage.date}}</p>
                         </div>
 
 <!-- 
@@ -122,7 +122,7 @@
 
                         <div id="messagesInput" class="d-flex">
                             <i class="fa-regular fa-face-smile m-auto"></i>
-                            <input type="text" class="h-75 m-auto w-75" placeholder="Digita qui il tuo messaggio...">
+                            <input id="messageToSend" type="text" class="h-75 m-auto w-75" placeholder="Digita qui il tuo messaggio...">
                             <i class="fa-solid fa-microphone m-auto"></i>
                         </div>
                     </div>
