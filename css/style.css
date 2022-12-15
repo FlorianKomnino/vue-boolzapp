@@ -1,3 +1,12 @@
+body {
+    background-color: #dadbd3;
+}
+
+header {
+    background-color: #009688;
+    height: 125px;
+}
+
 h1 {
     color: red;
 }
