@@ -29,7 +29,7 @@
                         <!-- qui inserisco account utente loggato e le impostazioni dell'account -->
                         <div id="loggedAccount" class="headingAccountsColor accountDimensioning d-flex">
                             <div class="accountInfos d-flex my-auto align-self-start">
-                                <img src="#" alt="profile Image" class="m-auto">
+                                <img :src=`./img/avatar${loggedUser.avatar}.png` alt="profile Image" class="m-auto">
                                 <p class="d-inline-block m-auto"><!-- user name --></p>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -53,14 +53,36 @@
                         <input type="text" id="searchBar">
                         <div id="contactsList">
                             <ul>
-                                <li class="accountDimensioning">Michele</li>
-                                <li class="accountDimensioning">Fabio</li>
-                                <li class="accountDimensioning">Samuele</li>
-                                <li class="accountDimensioning">Alessandro B.</li>
-                                <li class="accountDimensioning">Alessandro L.</li>
-                                <li class="accountDimensioning">Claudia</li>
-                                <li class="accountDimensioning">Federico</li>
-                                <li class="accountDimensioning">Davide</li>
+                                <li class="accountDimensioning d-flex">
+                                    <div class="accountInfos d-flex my-auto align-self-start">
+                                        <img src="#" alt="profile Image" class="m-auto">
+                                        <p class="d-inline-block m-auto"><!-- user name --></p>
+                                    </div>
+                                    <div class="accountSettings d-inline-block my-auto ms-auto">
+                                        <p class="m-2">12:00</p>
+                                    </div>
+                                </li>
+                                <li class="accountDimensioning">
+
+                                </li>
+                                <li class="accountDimensioning">
+
+                                </li>
+                                <li class="accountDimensioning">
+
+                                </li>
+                                <li class="accountDimensioning">
+                                    
+                                </li>
+                                <li class="accountDimensioning">
+                                    
+                                </li>
+                                <li class="accountDimensioning">
+                                    
+                                </li>
+                                <li class="accountDimensioning">
+                                    
+                                </li>
                             </ul>
                         </div>
                     </div>

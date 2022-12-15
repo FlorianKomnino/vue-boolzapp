@@ -5,7 +5,6 @@ const { createApp } = Vue;
 createApp ({
     data() {
         return {
-            message: 'Hello Vue!',
 
             contacts: [
                 {
@@ -169,8 +168,13 @@ createApp ({
                         }
                     ],
                 }
-            ]
-            
+            ],
+            message: 'Hello Vue!',
+
+            loggedUser: {
+                name: 'Io MeStesso Me',
+                avatar: '_io'
+            },
         }
     }
 }).mount ('#app')
