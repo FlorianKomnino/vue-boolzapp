@@ -179,7 +179,7 @@ createApp ({
     
     methods : {
         loggedUserAvatar() {
-            const stringToReturn = `./img/avatar${this.loggedUser.avatar}.jpd`;
+            const stringToReturn = `./img/avatar${this.loggedUser.avatar}.jpg`;
             console.log(stringToReturn);
             return stringToReturn;
         }
