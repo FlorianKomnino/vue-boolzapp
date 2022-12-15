@@ -12,7 +12,6 @@ main {
     position: absolute;
     top: 4vh;
     left: 10vw;
-    height: 92vh;
     width: 80vw;
 }
 
@@ -53,7 +52,7 @@ div.input-group.input-group-sm {
 }
 
 .accountDimensioning {
-    height: 60px;
+    height: 55px;
     width: 100%;
 }
 
@@ -74,4 +73,17 @@ div.input-group.input-group-sm {
 #notificationsBell {
     color: #8edafc;
     padding: 0.5rem;
+}
+
+#messagesArea {
+    background-image: url("../img/mine.jpg");
+}
+
+#messagesInput {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: #f3eeea;
+    bottom: 0;
+    left: 0;
 }

@@ -22,7 +22,7 @@
     <div id="app">
         <header></header>
 
-        <main>
+        <main class="overflow-hidden">
             <div class="container p-0">
                 <div class="row d-flex">
                     <div class="col-4 pe-0">
@@ -61,7 +61,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-4 pe-0">
+                    <div class="col-4 pe-0 overflow-scroll">
                         <!-- qui inserisco barra notifiche -->
                         <div id="notificationsToggle" class="d-flex">
                             <figure class="d-inline-block p-0 my-auto mx-3">
@@ -85,41 +85,27 @@
                         <!-- lista contatti accessibili -->
                         <div id="contactsList">
                             <ul>
-                                <li class="accountDimensioning d-flex">
+                                <li v-for="contact in contacts" class="accountDimensioning d-flex">
                                     <div class="accountInfos d-flex my-auto align-self-start">
-                                        <img src="#" alt="profile Image" class="m-auto">
-                                        <p class="d-inline-block m-auto"><!-- user name --></p>
+                                    <figure class="d-flex p-0 m-2">
+                                        <img :src="contactUserAvatar(contact.avatar)" alt="profile Image" class="m-auto">
+                                    </figure>
+                                        <p class="d-inline-block m-auto">{{contact.name}}</p>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
                                         <p class="m-2">12:00</p>
                                     </div>
                                 </li>
-                                <li class="accountDimensioning">
-
-                                </li>
-                                <li class="accountDimensioning">
-
-                                </li>
-                                <li class="accountDimensioning">
-
-                                </li>
-                                <li class="accountDimensioning">
-                                    
-                                </li>
-                                <li class="accountDimensioning">
-                                    
-                                </li>
-                                <li class="accountDimensioning">
-                                    
-                                </li>
-                                <li class="accountDimensioning">
-                                    
-                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div id="messagesArea" class="col-8 position-relative d-flex">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
+                        <div id="messagesInput" class="d-flex">
+                            <i class="fa-regular fa-face-smile m-auto"></i>
+                            <input type="text" class="h-75 m-auto w-75" placeholder="Digita qui il tuo messaggio...">
+                            <i class="fa-solid fa-microphone m-auto"></i>
+                        </div>
                     </div>
                 </div>
             </div>

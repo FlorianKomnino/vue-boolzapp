@@ -182,8 +182,13 @@ createApp ({
             const stringToReturn = `./img/avatar${this.loggedUser.avatar}.jpg`;
             console.log(stringToReturn);
             return stringToReturn;
-        }
+        },
         
+        contactUserAvatar(index) {
+            const stringToReturn = `./img/avatar${index}.jpg`;
+            console.log(stringToReturn);
+            return stringToReturn;
+        },
     }
 }).mount ('#app')
 
