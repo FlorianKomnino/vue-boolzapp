@@ -20,11 +20,13 @@
 
         <main>
             <div class="container">
-                <div class="row">
+                <div class="row d-flex">
                     <div class="col-4">
+                        <div id="loggedAccount" class="headingAccountsColor accountDimensioning"></div>
                         <!-- qui inserisco account utente loggato e le impostazioni dell'account -->
                     </div>
-                    <div class="col-8">
+                    <div id="contactViewedAccount" class="col-8">
+
                         <!-- qui inserisco account utente di cui si stanno visualizzando i messaggi e impostazioni dei messaggi -->
                     </div>
                 </div>
@@ -32,6 +34,20 @@
                 <div class="row">
                     <div class="col-4">
                         <!-- qui inserisco barra negazione notifiche, barra ricerca tra i contatti, lista contatti accessibili -->
+                        <div id="notificationsToggle">notifiche</div>
+                        <input type="text" id="searchBar">
+                        <div id="contactsList">
+                            <ul>
+                                <li class="accountDimensioning">Michele</li>
+                                <li class="accountDimensioning">Fabio</li>
+                                <li class="accountDimensioning">Samuele</li>
+                                <li class="accountDimensioning">Alessandro B.</li>
+                                <li class="accountDimensioning">Alessandro L.</li>
+                                <li class="accountDimensioning">Claudia</li>
+                                <li class="accountDimensioning">Federico</li>
+                                <li class="accountDimensioning">Davide</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-8">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
