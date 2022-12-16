@@ -228,15 +228,21 @@ createApp ({
                 });
         },
 
-        filteredContactsListCreator() {
+
+    },
+
+    beforeUpdate() {
+        if (this.searchInContactsString != '') {
             for (let i = 0 ; i < this.contacts.length ; i++) {
                 if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
                     this.contacts[i].visible = false;
                 }
-                console.log(this.contacts[i].visible);
             }
-        },
-
+        } else {
+            for (let i = 0 ; i < this.contacts.length ; i++) {
+                this.contacts[i].visible = true;
+                }
+        }
     }
 }).mount ('#app')
 
