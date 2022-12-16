@@ -180,6 +180,13 @@ createApp ({
 
             messageToAdd: '',
 
+            addingElement:
+            {
+                date: '00:00',
+                message: this.messageToAdd,
+                status: 'sent'
+            },
+
         }
     },
     
@@ -208,14 +215,9 @@ createApp ({
             this.contactToShow = numberToSet;
         },
 
-        messageAdderToConversation: () => {
-            this.contact[this.contactToShow].messages.push(
-                {
-                    date: '00:00',
-                    message: this.messageToAdd,
-                    status: 'sent'
-                }
-            )
+        messageAdderToConversation() {
+            this.contacts[this.contactToShow].messages.push(this.addingElement);
+            console.log(this.contacts[this.contactToShow].messages[this.contacts[this.contactToShow].messages.length - 1]);
         },
 
     }
