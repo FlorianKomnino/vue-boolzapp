@@ -87,6 +87,9 @@ div.singleMessageSent p {
     background-color: #ffffff;
 }
 
+.hiddenContact {
+    display: none!important;
+}
 
 .singleMessageSent {
     width: 40%;

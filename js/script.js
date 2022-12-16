@@ -180,8 +180,6 @@ createApp ({
 
             messageToAdd: '',
 
-            filteredList: [],
-            
             searchInContactsString: '',
 
         }
@@ -190,7 +188,6 @@ createApp ({
     methods : {
         loggedUserAvatar() {
             const stringToReturn = `./img/avatar${this.loggedUser.avatar}.jpg`;
-            console.log(stringToReturn);
             return stringToReturn;
         },
         
@@ -229,7 +226,16 @@ createApp ({
                     message: 'Ok! ;)',
                     status: 'received'
                 });
-        }
+        },
+
+        filteredContactsListCreator() {
+            for (let i = 0 ; i < this.contacts.length ; i++) {
+                if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
+                    this.contacts[i].visible = false;
+                }
+                console.log(this.contacts[i].visible);
+            }
+        },
 
     }
 }).mount ('#app')
