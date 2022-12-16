@@ -216,6 +216,7 @@ createApp ({
                 message: this.messageToAdd,
                 status: 'sent'
             });
+            this.messageToAdd = '';
             setTimeout(this.receivedMessageAdder, 1000);
         },
 

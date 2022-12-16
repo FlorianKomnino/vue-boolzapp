@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- link bootstrap v5.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    
+
     <!-- link to font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
@@ -51,7 +53,8 @@
                                 </figure>
                                 <div class="d-inline-block my-auto">
                                     <p class="m-auto">{{contacts[0].name}}</p>
-                                    <p class="m-auto">Ultimo accesso: {{contacts[0].messages[contacts[0].messages.length - 1].date}}</p>
+                                    <p class="m-auto">Ultimo accesso: {{contacts[0].messages[contacts[0].messages.length
+                                        - 1].date}}</p>
                                 </div>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -62,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-4 pe-0 overflow-scroll">
                         <!-- qui inserisco barra notifiche -->
@@ -82,28 +85,32 @@
                             <span class="input-group-text d-flex" id="inputGroup-sizing-sm">
                                 <i class="fa-solid fa-magnifying-glass m-auto"></i>
                             </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat" v-model="searchInContactsString" @keyUp.enter="filteredContactsListCreator">
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat"
+                                v-model="searchInContactsString" @keyUp.enter="filteredContactsListCreator">
                         </div>
 
                         <!-- lista contatti accessibili -->
                         <div id="contactsList">
                             <ul>
-                                <li v-for="contact, index in contacts" class="accountDimensioning d-flex" 
-                                :class="!contact.visible ? 'hiddenContact' : ''" @click="contactToShowVariableSetter(index)">
+                                <li v-for="contact, index in contacts" class="accountDimensioning d-flex"
+                                    :class="!contact.visible ? 'hiddenContact' : ''"
+                                    @click="contactToShowVariableSetter(index)">
 
                                     <div class="accountInfos d-flex my-auto align-self-start">
-                                    <figure class="d-flex p-0 m-2">
-                                        <img :src="contactUserAvatar(contact.avatar)" alt="profile Image" class="m-auto">
-                                    </figure>
-                                    <div class="d-inline-block m-auto">
-                                        <p class="m-auto">{{contact.name}}</p>
-                                        <p class="m-auto">{{contact.messages[contact.messages.length - 1].date}}</p>
-                                    </div>
+                                        <figure class="d-flex p-0 my-2 mx-3">
+                                            <img :src="contactUserAvatar(contact.avatar)" alt="profile Image"
+                                                class="m-auto">
+                                        </figure>
+                                        <div class="d-inline-block m-auto">
+                                            <p class="m-auto">{{contact.name}}</p>
+                                            <p class="m-auto">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                        </div>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
                                         <p class="m-2">12:00</p>
                                     </div>
-                                    
+
                                 </li>
                             </ul>
                         </div>
@@ -111,12 +118,23 @@
                     <div id="messagesArea" class="col-8 position-relative">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
-                        <div v-for="singleMessage in contactToShowSetter()" :key="singleMessage.message" :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived'" class="position-relative">
+                        <div v-for="singleMessage, index in contactToShowSetter()" :key="singleMessage.message"
+                            :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived'"
+                            class="position-relative">
                             {{singleMessage.message}}
+                            <div class="dropdown">
+                                <i :id="index" class="fa-solid fa-angle-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                </i>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" :href="index">Action</a></li>
+                                    <li><a class="dropdown-item" :href="index">Another action</a></li>
+                                    <li><a class="dropdown-item" :href="index">Something else here</a></li>
+                                </ul>
+                            </div>
                             <p>{{singleMessage.date}}</p>
                         </div>
 
-<!-- 
+                        <!-- 
                         <div class="singleMessageReceived m-2 p-2 bg-light position-relative">
                             {{contacts[0].messages[0].message}}
                             <span>00:00</span>
@@ -125,7 +143,9 @@
 
                         <div id="messagesInput" class="d-flex">
                             <i class="fa-regular fa-face-smile m-auto"></i>
-                            <input id="messageToSend" type="text" class="h-75 m-auto w-75" placeholder="Digita qui il tuo messaggio..." v-model="messageToAdd" @keyUp.enter="messageAdderToConversation">
+                            <input id="messageToSend" type="text" class="h-75 m-auto w-75"
+                                placeholder="Digita qui il tuo messaggio..." v-model="messageToAdd"
+                                @keyUp.enter="messageAdderToConversation">
                             <i class="fa-solid fa-microphone m-auto"></i>
                         </div>
                     </div>
@@ -140,4 +160,5 @@
     <!-- import JS script -->
     <script src="./js/script.js"></script>
 </body>
+
 </html>
