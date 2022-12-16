@@ -180,6 +180,10 @@ createApp ({
 
             messageToAdd: '',
 
+            filteredList: [],
+            
+            searchInContactsString: '',
+
         }
     },
     
