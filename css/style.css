@@ -96,6 +96,11 @@ div.singleMessageSent p {
     background-color: #d5f9ba;
 }
 
+.singleMessageSent,
+.singleMessageReceived {
+    padding-bottom: 20px;
+}
+
 #inputGroup-sizing-sm {
     width: 80px;
 }

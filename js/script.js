@@ -177,6 +177,9 @@ createApp ({
             selectedContactAvatar: '',
 
             contactToShow: 0,
+
+            messageToAdd: '',
+
         }
     },
     
@@ -203,7 +206,17 @@ createApp ({
 
         contactToShowVariableSetter(numberToSet) {
             this.contactToShow = numberToSet;
-        }
+        },
+
+        messageAdderToConversation: () => {
+            this.contact[this.contactToShow].messages.push(
+                {
+                    date: '00:00',
+                    message: this.messageToAdd,
+                    status: 'sent'
+                }
+            )
+        },
 
     }
 }).mount ('#app')
