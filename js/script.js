@@ -215,8 +215,17 @@ createApp ({
                 message: this.messageToAdd,
                 status: 'sent'
             });
-            console.log(this.contacts[this.contactToShow].messages[this.contacts[this.contactToShow].messages.length - 1]);
+            setTimeout(this.receivedMessageAdder, 1000);
         },
+
+        receivedMessageAdder() {
+            this.contacts[this.contactToShow].messages.push(
+                {
+                    date: '00:00',
+                    message: 'Ok! ;)',
+                    status: 'received'
+                });
+        }
 
     }
 }).mount ('#app')
