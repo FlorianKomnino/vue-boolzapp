@@ -151,7 +151,6 @@ createApp ({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
                             message: 'Ciao, andiamo a mangiare la pizza stasera?',
                             status: 'received'
                         },
@@ -182,6 +181,7 @@ createApp ({
 
             searchInContactsString: '',
 
+
         }
     },
     
@@ -193,7 +193,6 @@ createApp ({
         
         contactUserAvatar(index) {
             const stringToReturn = `./img/avatar${index}.jpg`;
-            console.log(stringToReturn);
             return stringToReturn;
         },
 
@@ -229,22 +228,23 @@ createApp ({
                 });
         },
 
-
-    },
-
-    beforeUpdate() {
-        if (this.searchInContactsString != '') {
-            for (let i = 0 ; i < this.contacts.length ; i++) {
-                if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
-                    this.contacts[i].visible = false;
+        contactSearch() {
+            if (this.searchInContactsString == '') {
+                    for (let i = 0 ; i < this.contacts.length ; i++) {
+                        this.contacts[i].visible = true;
+                }
+            } else {
+                    for (let i = 0 ; i < this.contacts.length ; i++) {
+                        if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
+                            this.contacts[i].visible = false;
+                        } else  {
+                            this.contacts[i].visible = true;
+                        }
+                    }
                 }
             }
-        } else {
-            for (let i = 0 ; i < this.contacts.length ; i++) {
-                this.contacts[i].visible = true;
-                }
-        }
-    }
+        },
+
 }).mount ('#app')
 
 

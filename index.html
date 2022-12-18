@@ -14,6 +14,9 @@
     <!-- link to font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
+    <!-- link to Luxon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.min.js">
+
     <!-- link to CSS -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -49,12 +52,11 @@
                         <div id="viewedAccount" class="headingAccountsColor accountDimensioning d-flex pe-2">
                             <div class="accountInfos d-flex my-auto align-self-start">
                                 <figure class="d-flex p-0 m-2">
-                                    <img src='./img/avatar_1.jpg' alt="profile Image" class="m-auto">
+                                    <img :src="'./img/avatar' + contacts[contactToShow].avatar + '.jpg'" alt="profile Image" class="m-auto">
                                 </figure>
                                 <div class="d-inline-block my-auto">
-                                    <p class="m-auto">{{contacts[0].name}}</p>
-                                    <p class="m-auto">Ultimo accesso: {{contacts[0].messages[contacts[0].messages.length
-                                        - 1].date}}</p>
+                                    <p class="m-auto">{{contacts[contactToShow].name}}</p>
+                                    <p class="m-auto">Ultimo accesso: molto tempo fa</p>
                                 </div>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -87,7 +89,7 @@
                             </span>
                             <input type="text" class="form-control" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat"
-                                v-model="searchInContactsString" @keyUp.enter="filteredContactsListCreator">
+                                v-model="searchInContactsString" @keyUp.enter="contactSearch()">
                         </div>
 
                         <!-- lista contatti accessibili -->
@@ -104,7 +106,7 @@
                                         </figure>
                                         <div class="d-inline-block m-auto">
                                             <p class="m-auto">{{contact.name}}</p>
-                                            <p class="m-auto">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                            <p class="m-auto">{{(contacts[0].messages[contacts[0].messages.length - 1].date != undefined) ? contacts[0].messages[contacts[0].messages.length - 1].date : unkownDate}}</p>
                                         </div>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -122,15 +124,19 @@
                             :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived'"
                             class="position-relative">
                             {{singleMessage.message}}
+
                             <div class="dropdown">
-                                <i :id="index" class="fa-solid fa-angle-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                </i>
+                                <a class="fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa-solid fa-angle-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    </i>
+                                </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" :href="index">Action</a></li>
-                                    <li><a class="dropdown-item" :href="index">Another action</a></li>
-                                    <li><a class="dropdown-item" :href="index">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </div>
+
                             <p>{{singleMessage.date}}</p>
                         </div>
 
