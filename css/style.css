@@ -62,24 +62,29 @@ div.singleMessageReceived p {
     margin: 0;
 }
 
-div.singleMessageSent div.dropdown,
-div.singleMessageReceived div.dropdown {
+div.singleMessageSent div.CustomDropdown,
+div.singleMessageReceived div.CustomDropdown {
     position: absolute;
     top: 2px;
     right: 2px;
     padding: 2px;
     font-size: 0.6rem;
     margin: 0;
-}
-
-.custom-dropdown {
-    position: static !important;
+    cursor: pointer;
 }
 
 .custom-dropdown-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    z-index: 2;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
-    margin-top:0px !important;
-    width:100% !important;
+    display: none;
+}
+
+.displayObject {
+    display: inline-block!important;
 }
 
 .accountInfos {

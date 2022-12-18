@@ -182,8 +182,9 @@ createApp ({
 
             searchInContactsString: '',
 
-            DateTime : luxon.DateTime,
+            DateTime: luxon.DateTime,
 
+            dropdownMenusArray: [],
         }
     },
     
@@ -244,7 +245,19 @@ createApp ({
                     }
                 }
             }
-        }
+        },
+
+
+        dropdownMenusArrayAdder() {
+            let customObjectToAdd = {visible : false};
+            this.dropdownMenusArray.push(customObjectToAdd);
+        },
+
+        dropdownShower(index) {
+            this.dropdownMenusArray[index].visible = !this.dropdownMenusArray[index].visible;
+        },
+
+
     },
 
 

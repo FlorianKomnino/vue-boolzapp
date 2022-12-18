@@ -122,6 +122,17 @@
                             class="position-relative">
                             {{singleMessage.message}}
 
+
+                            <div class="CustomDropdown" @click="dropdownShower(index)">
+                                <i class="fa-solid fa-angle-down"></i>
+                                {{ dropdownMenusArrayAdder()}}
+                                <div v-if="dropdownMenusArray[index].visible" class="custom-dropdown-menu displayObject">
+                                    Elimina messaggio
+                                </div>
+                                <div v-else class="custom-dropdown-menu">
+                                    Elimina messaggio
+                                </div>
+                            </div>
                             <p>{{singleMessage.date}}</p>
                         </div>
 
