@@ -257,6 +257,10 @@ createApp ({
             this.dropdownMenusArray[index].visible = !this.dropdownMenusArray[index].visible;
         },
 
+        messagesDeletedStatusAdder (messageIndex) {
+            this.contacts[this.contactToShow].messages[messageIndex].deletedStatus = 'deleted';
+        }
+
 
     },
 

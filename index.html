@@ -49,11 +49,14 @@
                         <div id="viewedAccount" class="headingAccountsColor accountDimensioning d-flex pe-2">
                             <div class="accountInfos d-flex my-auto align-self-start">
                                 <figure class="d-flex p-0 m-2">
-                                    <img :src="'./img/avatar' + contacts[contactToShow].avatar + '.jpg'" alt="profile Image" class="m-auto">
+                                    <img :src="'./img/avatar' + contacts[contactToShow].avatar + '.jpg'"
+                                        alt="profile Image" class="m-auto">
                                 </figure>
                                 <div class="d-inline-block my-auto">
                                     <p class="m-auto">{{contacts[contactToShow].name}}</p>
-                                    <p class="m-auto">Ultimo accesso: {{contacts[contactToShow].messages[contacts[contactToShow].messages.length - 1].date}}</p>
+                                    <p class="m-auto">Ultimo accesso:
+                                        {{contacts[contactToShow].messages[contacts[contactToShow].messages.length -
+                                        1].date}}</p>
                                 </div>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -103,7 +106,9 @@
                                         </figure>
                                         <div class="d-inline-block m-auto">
                                             <p class="m-auto">{{contact.name}}</p>
-                                            <p class="m-auto">{{(contacts[0].messages[contacts[0].messages.length - 1].date != undefined) ? contacts[0].messages[contacts[0].messages.length - 1].date : unkownDate}}</p>
+                                            <p class="m-auto">{{(contacts[0].messages[contacts[0].messages.length -
+                                                1].date != undefined) ? contacts[0].messages[contacts[0].messages.length
+                                                - 1].date : unkownDate}}</p>
                                         </div>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -118,7 +123,7 @@
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
                         <div v-for="singleMessage, index in contactToShowSetter()" :key="singleMessage.message"
-                            :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived'"
+                            :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived', (singleMessage.deletedStatus == 'deleted') ? 'hideMessage' : ''"
                             class="position-relative">
                             {{singleMessage.message}}
 
@@ -126,11 +131,12 @@
                             <div class="CustomDropdown" @click="dropdownShower(index)">
                                 <i class="fa-solid fa-angle-down"></i>
                                 {{ dropdownMenusArrayAdder()}}
-                                <div v-if="dropdownMenusArray[index].visible" class="custom-dropdown-menu displayObject">
+                                <div v-if="dropdownMenusArray[index].visible" class="custom-dropdown-menu displayObject"
+                                    @click="messagesDeletedStatusAdder(index)">
                                     Elimina messaggio
                                 </div>
                                 <div v-else class="custom-dropdown-menu">
-                                    Elimina messaggio
+
                                 </div>
                             </div>
                             <p>{{singleMessage.date}}</p>

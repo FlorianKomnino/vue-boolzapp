@@ -73,6 +73,14 @@ div.singleMessageReceived div.CustomDropdown {
     cursor: pointer;
 }
 
+.displayObject {
+    display: inline-block!important;
+}
+
+.hideMessage {
+    display: none!important;
+}
+
 .custom-dropdown-menu {
     position: absolute;
     top: 0;
@@ -81,10 +89,6 @@ div.singleMessageReceived div.CustomDropdown {
     z-index: 2;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
     display: none;
-}
-
-.displayObject {
-    display: inline-block!important;
 }
 
 .accountInfos {
