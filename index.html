@@ -14,9 +14,6 @@
     <!-- link to font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <!-- link to Luxon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.min.js">
-
     <!-- link to CSS -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -56,7 +53,7 @@
                                 </figure>
                                 <div class="d-inline-block my-auto">
                                     <p class="m-auto">{{contacts[contactToShow].name}}</p>
-                                    <p class="m-auto">Ultimo accesso: molto tempo fa</p>
+                                    <p class="m-auto">Ultimo accesso: {{contacts[contactToShow].messages[contacts[contactToShow].messages.length - 1].date}}</p>
                                 </div>
                             </div>
                             <div class="accountSettings d-inline-block my-auto ms-auto">
@@ -125,18 +122,6 @@
                             class="position-relative">
                             {{singleMessage.message}}
 
-                            <div class="dropdown">
-                                <a class="fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa-solid fa-angle-down" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    </i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-
                             <p>{{singleMessage.date}}</p>
                         </div>
 
@@ -161,6 +146,8 @@
     </div>
 
 
+    <!-- link to Luxon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.min.js"></script>
     <!-- link to VUE -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- import JS script -->

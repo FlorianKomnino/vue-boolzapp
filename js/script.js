@@ -151,6 +151,7 @@ createApp ({
                     visible: true,
                     messages: [
                         {
+                            date: '10/01/2020 15:30:55',
                             message: 'Ciao, andiamo a mangiare la pizza stasera?',
                             status: 'received'
                         },
@@ -211,7 +212,7 @@ createApp ({
         messageAdderToConversation() {
             this.contacts[this.contactToShow].messages.push(
             {
-                date: '00:00',
+                date: this.DateTime.now().toISO(),
                 message: this.messageToAdd,
                 status: 'sent'
             });
@@ -246,6 +247,7 @@ createApp ({
         },
 
 }).mount ('#app')
+
 
 
 
