@@ -182,6 +182,7 @@ createApp ({
 
             searchInContactsString: '',
 
+            DateTime : luxon.DateTime,
 
         }
     },
@@ -212,7 +213,7 @@ createApp ({
         messageAdderToConversation() {
             this.contacts[this.contactToShow].messages.push(
             {
-                date: this.DateTime.now().toISO(),
+                date: this.DateTime.now().toISO().replace('T', '  ').slice(0, -10),
                 message: this.messageToAdd,
                 status: 'sent'
             });
@@ -223,7 +224,7 @@ createApp ({
         receivedMessageAdder() {
             this.contacts[this.contactToShow].messages.push(
                 {
-                    date: '00:00',
+                    date: this.DateTime.now().toISO().replace('T', '  ').slice(0, -10),
                     message: 'Ok! ;)',
                     status: 'received'
                 });
@@ -231,25 +232,20 @@ createApp ({
 
         contactSearch() {
             if (this.searchInContactsString == '') {
-                    for (let i = 0 ; i < this.contacts.length ; i++) {
-                        this.contacts[i].visible = true;
+                for (let i = 0 ; i < this.contacts.length ; i++) {
+                    this.contacts[i].visible = true;
                 }
             } else {
-                    for (let i = 0 ; i < this.contacts.length ; i++) {
-                        if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
-                            this.contacts[i].visible = false;
-                        } else  {
-                            this.contacts[i].visible = true;
-                        }
+                for (let i = 0 ; i < this.contacts.length ; i++) {
+                    if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
+                        this.contacts[i].visible = false;
+                    } else  {
+                        this.contacts[i].visible = true;
                     }
                 }
             }
-        },
+        }
+    },
+
 
 }).mount ('#app')
-
-
-
-
-
-
