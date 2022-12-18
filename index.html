@@ -122,12 +122,13 @@
                     <div id="messagesArea" class="col-8 position-relative">
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
+                        <!-- creo un elemento per ogni messaggio scambiato con il contatto da mostrare -->
                         <div v-for="singleMessage, index in contactToShowSetter()" :key="singleMessage.message"
                             :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived', (singleMessage.deletedStatus == 'deleted') ? 'hideMessage' : ''"
                             class="position-relative">
                             {{singleMessage.message}}
 
-
+                        <!-- creo l'elemento del dropdown menu per l'eleiminazione del messaggio -->
                             <div class="CustomDropdown" @click="dropdownShower(index)">
                                 <i class="fa-solid fa-angle-down"></i>
                                 {{ dropdownMenusArrayAdder()}}
@@ -142,6 +143,7 @@
                             <p>{{singleMessage.date}}</p>
                         </div>
 
+                        <!-- creo elemento per la visualizzazione di data e ora di invio o ricezione del messaggio -->
                         <div id="messagesInput" class="d-flex">
                             <i class="fa-regular fa-face-smile m-auto"></i>
                             <input id="messageToSend" type="text" class="h-75 m-auto w-75"
