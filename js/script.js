@@ -213,7 +213,7 @@ createApp ({
         messageAdderToConversation() {
             this.contacts[this.contactToShow].messages.push(
             {
-                date: this.DateTime.now().toISO().replace('T', '  ').slice(0, -10),
+                date: this.DateTime.now().toISO().replace('T', '  ').replaceAll('-', '/').slice(0, -10),
                 message: this.messageToAdd,
                 status: 'sent'
             });
@@ -224,7 +224,7 @@ createApp ({
         receivedMessageAdder() {
             this.contacts[this.contactToShow].messages.push(
                 {
-                    date: this.DateTime.now().toISO().replace('T', '  ').slice(0, -10),
+                    date: this.DateTime.now().toISO().replace('T', '  ').replaceAll('-', '/').slice(0, -10),
                     message: 'Ok! ;)',
                     status: 'received'
                 });
