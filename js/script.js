@@ -184,7 +184,6 @@ createApp ({
 
             DateTime: luxon.DateTime,
 
-            dropdownMenusArray: [],
         }
     },
     
@@ -241,13 +240,8 @@ createApp ({
             }
         },
 
-        dropdownMenusArrayAdder() {
-            let customObjectToAdd = {visible : false};
-            this.dropdownMenusArray.push(customObjectToAdd);
-        },
-
         dropdownShower(index) {
-            this.dropdownMenusArray[index].visible = !this.dropdownMenusArray[index].visible;
+            this.messagesToShowFinder()[index].visible = true;
         },
 
         messagesDeletedStatusAdder (messageIndex) {
@@ -255,8 +249,8 @@ createApp ({
             this.dropdownMenusArray = [];
         },
 
-        dropdownArrayCleaner () {
-            this.dropdownMenusArray = [];
+        dropdownArrayCleaner (index) {
+            delete this.messagesToShowFinder()[index].visible;
         },
 
         lastReceivedMessageFinder (array) {

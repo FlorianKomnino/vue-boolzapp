@@ -135,15 +135,11 @@
                             {{singleMessage.message}}
 
                         <!-- creo l'elemento del dropdown menu per l'eleiminazione del messaggio -->
-                            <div class="CustomDropdown" @click="dropdownShower(index)" @mouseleave="dropdownArrayCleaner">
+                            <div class="CustomDropdown" @click="dropdownShower(index)">
                                 <i class="fa-solid fa-angle-down"></i>
-                                {{ dropdownMenusArrayAdder()}}
-                                <div v-if="dropdownMenusArray[index].visible" class="custom-dropdown-menu displayObject"
-                                    @click="messagesDeletedStatusAdder(index)">
+                                <div v-if="messagesToShowFinder()[index].visible != undefined && messagesToShowFinder()[index].visible" class="custom-dropdown-menu displayObject"
+                                    @click="messagesDeletedStatusAdder(index)" @mouseleave="dropdownArrayCleaner(index)">
                                     Elimina messaggio
-                                </div>
-                                <div v-else class="custom-dropdown-menu">
-
                                 </div>
                             </div>
                             <p>{{singleMessage.date}}</p>
