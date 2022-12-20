@@ -123,7 +123,7 @@
                         <!-- questa è l'area di visualizzazione ed invio dei messaggi -->
 
                         <!-- creo un elemento per ogni messaggio scambiato con il contatto da mostrare -->
-                        <div v-for="singleMessage, index in contactToShowSetter()" :key="singleMessage.message"
+                        <div v-for="singleMessage, index in messagesToShowFinder()" :key="singleMessage.message"
                             :class="(singleMessage.status == 'sent') ? 'singleMessageSent' : 'singleMessageReceived', (singleMessage.deletedStatus == 'deleted') ? 'hideMessage' : ''"
                             class="position-relative">
                             {{singleMessage.message}}

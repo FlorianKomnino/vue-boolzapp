@@ -203,7 +203,7 @@ createApp ({
             this.selectedContactAvatar = `./img/avatar${index}.jpg`;
         },
 
-        contactToShowSetter() {
+        messagesToShowFinder() {
             return this.contacts[this.contactToShow].messages;
         },
 
@@ -232,17 +232,11 @@ createApp ({
         },
 
         contactSearch() {
-            if (this.searchInContactsString == '') {
-                for (let i = 0 ; i < this.contacts.length ; i++) {
+            for (let i = 0 ; i < this.contacts.length ; i++) {
+                if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
+                    this.contacts[i].visible = false;
+                } else  {
                     this.contacts[i].visible = true;
-                }
-            } else {
-                for (let i = 0 ; i < this.contacts.length ; i++) {
-                    if (!this.contacts[i].name.toLowerCase().startsWith(this.searchInContactsString.trim().toLowerCase())){
-                        this.contacts[i].visible = false;
-                    } else  {
-                        this.contacts[i].visible = true;
-                    }
                 }
             }
         },
