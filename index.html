@@ -129,10 +129,9 @@
                             {{singleMessage.message}}
 
                         <!-- creo l'elemento del dropdown menu per l'eleiminazione del messaggio -->
-                            <div class="CustomDropdown" @click="dropdownShower(index)">
+                            <div class="CustomDropdown" @click="dropdownShower()">
                                 <i class="fa-solid fa-angle-down"></i>
-                                {{ dropdownMenusArrayAdder()}}
-                                <div v-if="dropdownMenusArray[index].visible" class="custom-dropdown-menu displayObject"
+                                <div v-if="visibleDropdownMenu" class="custom-dropdown-menu displayObject"
                                     @click="messagesDeletedStatusAdder(index)">
                                     Elimina messaggio
                                 </div>
