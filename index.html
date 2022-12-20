@@ -89,7 +89,7 @@
                             </span>
                             <input type="text" class="form-control" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat"
-                                v-model="searchInContactsString" @keyUp.enter="contactSearch()">
+                                v-model="searchInContactsString" @keyUp="contactSearch()">
                         </div>
 
                         <!-- lista contatti accessibili -->
@@ -106,8 +106,8 @@
                                         </figure>
                                         <div class="d-inline-block m-auto">
                                             <p class="m-auto">{{contact.name}}</p>
-                                            <p class="m-auto">{{(contacts[0].messages[contacts[0].messages.length -
-                                                1].date != undefined) ? contacts[0].messages[contacts[0].messages.length
+                                            <p class="m-auto">{{(contact.messages[contact.messages.length -
+                                                1].date != undefined) ? contact.messages[contact.messages.length
                                                 - 1].date : unkownDate}}</p>
                                         </div>
                                     </div>
