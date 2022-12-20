@@ -52,6 +52,10 @@ div.accountInfos p {
     font-weight: 600;
 }
 
+div.accountSettings p {
+    font-size: 0.75rem;
+}
+
 div.singleMessageSent p,
 div.singleMessageReceived p {
     position: absolute;

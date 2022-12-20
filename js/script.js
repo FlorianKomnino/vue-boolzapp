@@ -219,7 +219,7 @@ createApp ({
                 status: 'sent'
             });
             this.messageToAdd = '';
-            setTimeout(this.receivedMessageAdder, 1000);
+            setTimeout(this.receivedMessageAdder, 3000);
         },
 
         receivedMessageAdder() {
@@ -257,7 +257,12 @@ createApp ({
 
         dropdownArrayCleaner () {
             this.dropdownMenusArray = [];
-        }
+        },
+
+        lastReceivedMessageFinder (array) {
+            let neededElement = array.findLast((element) => element.status == 'received');
+            return neededElement;
+        },
 
     },
 
