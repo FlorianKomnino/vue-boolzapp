@@ -185,8 +185,6 @@ createApp ({
             DateTime: luxon.DateTime,
 
             dropdownMenusArray: [],
-
-            visibleDropdownMenu : false,
         }
     },
     
@@ -243,14 +241,23 @@ createApp ({
             }
         },
 
-        dropdownShower() {
-            this.visibleDropdownMenu = true;
+        dropdownMenusArrayAdder() {
+            let customObjectToAdd = {visible : false};
+            this.dropdownMenusArray.push(customObjectToAdd);
+        },
+
+        dropdownShower(index) {
+            this.dropdownMenusArray[index].visible = !this.dropdownMenusArray[index].visible;
         },
 
         messagesDeletedStatusAdder (messageIndex) {
             this.contacts[this.contactToShow].messages[messageIndex].deletedStatus = 'deleted';
-        }
+            this.dropdownMenusArray = [];
+        },
 
+        dropdownArrayCleaner () {
+            this.dropdownMenusArray = [];
+        }
 
     },
 
