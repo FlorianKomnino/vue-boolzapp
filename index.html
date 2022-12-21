@@ -108,16 +108,16 @@
                                             <p class="m-auto">{{contact.name}}</p>
                                             <p class="m-auto">{{
                                                 (lastReceivedMessageFinder(contact.messages) != undefined) 
-                                                ? lastReceivedMessageFinder(contact.messages).date 
-                                                : unkownDate
+                                                ? lastReceivedMessageFinder(contact.messages).message 
+                                                : 'unkown'
                                             }}</p>
                                         </div>
                                     </div>
                                     <div class="accountSettings d-inline-block my-auto ms-auto">
                                         <p class="m-2">Ultimo accesso: {{
                                             (lastReceivedMessageFinder(contact.messages) != undefined) 
-                                            ? lastReceivedMessageFinder(contact.messages).date 
-                                            : unkownDate
+                                            ? lastReceivedMessageFinder(contact.messages).date.slice(0, -9)
+                                            : 'unkown'
                                         }}</p>
                                     </div>
 
